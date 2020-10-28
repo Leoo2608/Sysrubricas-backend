@@ -1,4 +1,4 @@
-package pe.edu.com.lp2;
+package pe.edu.com.sysrubricas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
