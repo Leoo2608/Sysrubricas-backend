@@ -7,7 +7,7 @@ import pe.edu.com.sysrubricas.entity.LineaAcademica;
 public interface LineaAcademicaDao {
 	int create(LineaAcademica l);
 	int update(LineaAcademica l);
-	LineaAcademica delete(int id);
+	int delete(int id);
 	Map<String,Object> read(int id);
 	Map<String,Object> readAll();
 }
