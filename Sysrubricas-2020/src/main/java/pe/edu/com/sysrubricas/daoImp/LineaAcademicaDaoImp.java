@@ -32,9 +32,8 @@ public class LineaAcademicaDaoImp implements LineaAcademicaDao {
 	}
 
 	@Override
-	public LineaAcademica delete(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public int delete(int id) {
+		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_DELETE_L(?)", id);
 	}
 
 	@Override
@@ -50,8 +49,11 @@ public class LineaAcademicaDaoImp implements LineaAcademicaDao {
 
 	@Override
 	public Map<String, Object> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+		.withCatalogName("PK_LINEA_ACADEMICA")
+		.withProcedureName("SP_LISTAR_L")
+		.declareParameters(new SqlOutParameter("CURSOR_L", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return simpleJdbcCall.execute();
 	}
 
 }

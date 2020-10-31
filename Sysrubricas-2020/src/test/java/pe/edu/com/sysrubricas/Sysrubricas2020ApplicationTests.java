@@ -13,7 +13,9 @@ class Sysrubricas2020ApplicationTests {
 	private LineaAcademicaDao ld;
 	@Test
 	void contextLoads() {
-		System.out.println(ld.read(1));
+		//System.out.println(ld.read(1));
+		System.out.println(ld.readAll());
+		ld.delete(21);
 	}
 
 }
