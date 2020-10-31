@@ -21,14 +21,12 @@ public class LineaAcademicaDaoImp implements LineaAcademicaDao {
 	private SimpleJdbcCall simpleJdbcCall;
 	@Override
 	public int create(LineaAcademica l) {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_CREATE_L(?, ?)", l.getNombre(), l.getId_unidad());
 	}
 
 	@Override
 	public int update(LineaAcademica l) {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_UPDATE_L(?, ?, ?)", l.getId_linea(), l.getNombre(), l.getId_unidad());
 	}
 
 	@Override

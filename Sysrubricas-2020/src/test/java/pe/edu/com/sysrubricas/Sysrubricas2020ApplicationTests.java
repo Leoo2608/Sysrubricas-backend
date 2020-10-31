@@ -14,8 +14,19 @@ class Sysrubricas2020ApplicationTests {
 	@Test
 	void contextLoads() {
 		//System.out.println(ld.read(1));
-		System.out.println(ld.readAll());
-		ld.delete(21);
+		//System.out.println(ld.readAll());
+		//ld.delete(21);
+		/*LineaAcademica l = new LineaAcademica();
+		l.setNombre("Gestión de TI");
+		l.setId_unidad(5);
+		System.out.println(ld.create(l));*/
+		
+		LineaAcademica l = new LineaAcademica();
+		l.setId_linea(21);
+		l.setNombre("Prueba2.0");
+		l.setId_unidad(5);
+		System.out.println(ld.update(l));
+		
 	}
 
 }
