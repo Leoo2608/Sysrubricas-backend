@@ -16,7 +16,23 @@ class Sysrubricas2020ApplicationTests {
 	private LineaAcademicaDao ld;
 	@Test
 	void contextLoads() {
+
 		System.out.println(tua.readAll());
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
 	}
 
 }

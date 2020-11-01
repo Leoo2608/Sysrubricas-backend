@@ -21,20 +21,17 @@ public class LineaAcademicaDaoImp implements LineaAcademicaDao {
 	private SimpleJdbcCall simpleJdbcCall;
 	@Override
 	public int create(LineaAcademica l) {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_CREATE_L(?, ?)", l.getNombre(), l.getId_unidad());
 	}
 
 	@Override
 	public int update(LineaAcademica l) {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_UPDATE_L(?, ?, ?)", l.getId_linea(), l.getNombre(), l.getId_unidad());
 	}
 
 	@Override
-	public LineaAcademica delete(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public int delete(int id) {
+		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_DELETE_L(?)", id);
 	}
 
 	@Override
@@ -50,8 +47,11 @@ public class LineaAcademicaDaoImp implements LineaAcademicaDao {
 
 	@Override
 	public Map<String, Object> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+		.withCatalogName("PK_LINEA_ACADEMICA")
+		.withProcedureName("SP_LISTAR_L")
+		.declareParameters(new SqlOutParameter("CURSOR_L", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return simpleJdbcCall.execute();
 	}
 
 }
