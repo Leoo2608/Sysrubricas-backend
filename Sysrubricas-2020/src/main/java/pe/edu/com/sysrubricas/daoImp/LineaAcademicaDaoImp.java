@@ -42,7 +42,7 @@ public class LineaAcademicaDaoImp implements LineaAcademicaDao {
 		System.out.println(id);
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 		.withCatalogName("PK_LINEA_ACADEMICA")
-		.withProcedureName("SP_READ_L")
+		.withProcedureName("sp_read_tipounidad")
 		.declareParameters(new SqlOutParameter("CURSOR_L", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDLINEA", Types.INTEGER));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("IDLINEA", id);
 		return simpleJdbcCall.execute(in);

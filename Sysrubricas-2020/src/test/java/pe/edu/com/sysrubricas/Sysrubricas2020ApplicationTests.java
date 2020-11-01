@@ -5,15 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
+import pe.edu.com.sysrubricas.dao.TipoUnidadAcademicaDao;
 import pe.edu.com.sysrubricas.entity.LineaAcademica;
 
 @SpringBootTest
 class Sysrubricas2020ApplicationTests {
 	@Autowired
+	private TipoUnidadAcademicaDao tua;
+	@Autowired
 	private LineaAcademicaDao ld;
 	@Test
 	void contextLoads() {
-		System.out.println(ld.read(1));
+		System.out.println(tua.readAll());
 	}
 
 }
