@@ -32,4 +32,9 @@ public class Docente {
 	public void setEstado(char estado) {
 		this.estado = estado;
 	}
+	
+	
+	
+	
+	
 }
