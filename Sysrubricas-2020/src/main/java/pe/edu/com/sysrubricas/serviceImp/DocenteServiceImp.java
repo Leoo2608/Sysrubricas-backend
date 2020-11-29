@@ -13,13 +13,11 @@ public class DocenteServiceImp implements DocenteService {
 	private DocenteDao d;
 	@Override
 	public int create(DocenteService d) {
-		// TODO Auto-generated method stub
 		return d.create(d);
 	}
 
 	@Override
 	public int update(DocenteService d) {
-		// TODO Auto-generated method stub
 		return d.update(d);
 	}
 
@@ -27,13 +25,11 @@ public class DocenteServiceImp implements DocenteService {
 
 	@Override
 	public Map<String, Object> read(int id) {
-		// TODO Auto-generated method stub
 		return d.read(id);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
-		// TODO Auto-generated method stub
 		return d.readAll();
 	}
 

@@ -8,19 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pe.edu.com.sysrubricas.service.DocenteService;
-
+import pe.edu.com.sysrubricas.service.ExpertoEService;
 @RestController
-@RequestMapping("/docente")
-public class DocenteController {
-	
-		@Autowired
-		private DocenteService d;
-		
-		@GetMapping("/lista")
-		@CrossOrigin(origins = "http://localhost:4200")
-		public Map<String, Object> readAll(){
-			return d.readAll();
-		}
+@RequestMapping("/expertoe")
+public class ExpertoEController {
+			@Autowired
+			private ExpertoEService e;
+			
+			@GetMapping("/lista")
+			@CrossOrigin(origins = "http://localhost:4200")
+			public Map<String, Object> readAll(){
+				return e.readAll();
+			}
 
 }
