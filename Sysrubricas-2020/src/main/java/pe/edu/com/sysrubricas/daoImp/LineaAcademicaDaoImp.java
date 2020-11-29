@@ -21,12 +21,12 @@ public class LineaAcademicaDaoImp implements LineaAcademicaDao {
 	private SimpleJdbcCall simpleJdbcCall;
 	@Override
 	public int create(LineaAcademica l) {
-		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_CREATE_L(?, ?)", l.getNombre(), l.getId_unidad());
+		return jdbcTemplate.update("call  pk_linea_academica.sp_create_l(?)", l.getNombre());
 	}
 
 	@Override
 	public int update(LineaAcademica l) {
-		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_UPDATE_L(?, ?, ?)", l.getId_linea(), l.getNombre(), l.getId_unidad());
+		return jdbcTemplate.update("CALL PK_LINEA_ACADEMICA.SP_UPDATE_L(?, ?)", l.getId_linea(), l.getNombre());
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class LineaAcademicaDaoImp implements LineaAcademicaDao {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 		.withCatalogName("PK_LINEA_ACADEMICA")
 		.withProcedureName("SP_READ_L")
-		.declareParameters(new SqlOutParameter("CURSOR_L", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDLINEA", Types.INTEGER));
+		.declareParameters(new SqlParameter("IDLINEA", Types.INTEGER),new SqlOutParameter("CURSOR_L", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("IDLINEA", id);
 		return simpleJdbcCall.execute(in);
 	}
