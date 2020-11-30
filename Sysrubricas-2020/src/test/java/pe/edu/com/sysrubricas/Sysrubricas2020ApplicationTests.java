@@ -6,32 +6,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
 import pe.edu.com.sysrubricas.dao.TipoUnidadAcademicaDao;
+import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
 import pe.edu.com.sysrubricas.entity.LineaAcademica;
+import pe.edu.com.sysrubricas.entity.TipoUnidadAcademica;
+import pe.edu.com.sysrubricas.entity.UnidadAcademica;
 
 @SpringBootTest
 class Sysrubricas2020ApplicationTests {
 	@Autowired
-	private TipoUnidadAcademicaDao tua;
-	@Autowired
-	private LineaAcademicaDao ld;
+	private UnidadAcademicaDao t;
 	@Test
 	void contextLoads() {
-
-		System.out.println(tua.readAll());
-
-
-
-
-
-
-
-
-
-
-
-
-
 		
+		
+		System.out.println(t.readCampus("Lima"));
+
 
 	}
 

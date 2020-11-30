@@ -27,7 +27,7 @@ public class TipoUnidadAcademicaServiceImp implements TipoUnidadAcademicaService
 	}
 
 	@Override
-	public int delete(int id) {
+	public Map<String, Object> delete(int id) {
 		// TODO Auto-generated method stub
 		return tdao.delete(id);
 	}
@@ -42,6 +42,12 @@ public class TipoUnidadAcademicaServiceImp implements TipoUnidadAcademicaService
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
 		return tdao.readAll();
+	}
+
+	@Override
+	public TipoUnidadAcademica readUpdate(int id) {
+		// TODO Auto-generated method stub
+		return tdao.readUpdate(id);
 	}
 
 }
