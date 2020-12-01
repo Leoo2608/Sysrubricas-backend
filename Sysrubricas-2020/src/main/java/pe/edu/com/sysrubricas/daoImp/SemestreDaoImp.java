@@ -51,9 +51,9 @@ public class SemestreDaoImp implements SemestreDao {
 	@Override
 	public Map<String, Object> readAll() {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-				.withCatalogName("PK_SEMESTRE")
-				.withProcedureName("SP_LISTAR_S")
-				.declareParameters(new SqlOutParameter("CURSOR_SEMESTRES", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+				.withCatalogName("pk_semestre")
+				.withProcedureName("sp_listar_s")
+				.declareParameters(new SqlOutParameter("cursor_semestres", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
 	}
 
