@@ -10,4 +10,5 @@ public interface PlanAcademicoDao {
 	int delete(int id);
 	Map<String, Object> read(int id);
 	Map<String,Object> readAll();
+	Map<String, Object> readxUnidad(int id);
 }

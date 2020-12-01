@@ -55,5 +55,14 @@ public class PlanAcademicoDaoImp implements PlanAcademicoDao {
 				.declareParameters(new SqlOutParameter("CURSOR_P", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
 	}
-
+	@Override
+	public Map<String, Object> readxUnidad(int id){
+		System.out.println(id);
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+		.withCatalogName("PK_PLAN_ACADEMICA")
+		.withProcedureName("SP_LISTAR_XUNIDAD")
+		.declareParameters(new SqlOutParameter("CURSOR_P", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDU", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("IDU", id);
+		return simpleJdbcCall.execute(in);
+	}
 }
