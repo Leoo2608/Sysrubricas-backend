@@ -6,37 +6,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.com.sysrubricas.dao.DocenteDao;
+import pe.edu.com.sysrubricas.entity.Docente;
 import pe.edu.com.sysrubricas.service.DocenteService;
 @Service
 public class DocenteServiceImp implements DocenteService {
 	@Autowired
-	private DocenteDao d;
+	private DocenteDao dc;
 	@Override
-	public int create(DocenteService d) {
-		return d.create(d);
+	public int create(Docente d) {
+		return dc.create(d);
 	}
 
 	@Override
-	public int update(DocenteService d) {
-		return d.update(d);
+	public int update(Docente d) {
+		return dc.update(d);
 	}
 
 	
 
 	@Override
 	public Map<String, Object> read(int id) {
-		return d.read(id);
+		return dc.read(id);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
-		return d.readAll();
+		return dc.readAll();
 	}
 
 	@Override
 	public int delete(int codigo) {
-		// TODO Auto-generated method stub
-		return d.delete(codigo);
+		return dc.delete(codigo);
 	}
 
 }

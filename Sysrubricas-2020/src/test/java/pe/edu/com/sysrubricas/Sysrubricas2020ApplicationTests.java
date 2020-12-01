@@ -4,19 +4,26 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 import pe.edu.com.sysrubricas.dao.DocenteDao;
 import pe.edu.com.sysrubricas.dao.ExpertoEDao;
 import pe.edu.com.sysrubricas.entity.Docente;
 import pe.edu.com.sysrubricas.entity.ExpertoE;
 
 
+
+
 @SpringBootTest
 class Sysrubricas2020ApplicationTests {
 	@Autowired
+
 	private DocenteDao ld;
 	
 	@Autowired
 	private ExpertoEDao e;
+
+	
+
 	@Test
 	void contextLoads() {
 		
@@ -31,9 +38,8 @@ class Sysrubricas2020ApplicationTests {
 		l.setNombre("Gestión de TI");
 		l.setId_unidad(5);
 		System.out.println(ld.create(l));*/
-		
-		
-		
 	}
-
 }
+
+	
+

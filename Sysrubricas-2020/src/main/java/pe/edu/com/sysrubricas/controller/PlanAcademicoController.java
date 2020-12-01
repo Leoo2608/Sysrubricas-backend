@@ -13,44 +13,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pe.edu.com.sysrubricas.entity.LineaAcademica;
-import pe.edu.com.sysrubricas.service.LineaAcademicaService;
+import pe.edu.com.sysrubricas.entity.PlanAcademico;
+import pe.edu.com.sysrubricas.service.PlanAcademicoService;
 
 @RestController
 @RequestMapping("/api")
-public class LineaAcademicaController {
+public class PlanAcademicoController {
 	@Autowired
-	private LineaAcademicaService lser;
+	private PlanAcademicoService pser;
 	
-	@GetMapping("/lineas")
+	@GetMapping("/planes")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Map<String, Object> readAll(){
-		return lser.readAll();
+		return pser.readAll();
 	}
-	@GetMapping("/lineas/{id}")
+	
+	@GetMapping("/planes/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Map<String, Object> read(@PathVariable int id) {
-		return lser.read(id);
+	public Map<String, Object> read(@PathVariable int id){
+		return pser.read(id);
 	}
-	@PostMapping("/lineas/add")
+	
+	@PostMapping("/planes/add")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int create(@RequestBody LineaAcademica l) {
-		return lser.create(l);
+	public int create(@RequestBody PlanAcademico p) {
+		return pser.create(p);
 	}
-	@DeleteMapping("/lineas/delete/{id}")
+	
+	@DeleteMapping("/planes/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int delete(@PathVariable int id) {
-		return lser.delete(id);
+		return pser.delete(id);
 	}
 	
-	@PutMapping("/lineas/update/{id}")
+	@PutMapping("/planes/update/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int update(@RequestBody LineaAcademica linea,@PathVariable int id) {
-		LineaAcademica l = new LineaAcademica();
-		l.setId_linea(id);
-		l.setNombre(linea.getNombre());
-		return lser.update(l);
+	public int update(@RequestBody PlanAcademico plan, @PathVariable int id) {
+		PlanAcademico p = new PlanAcademico();
+		p.setIdplan(id);
+		p.setNombre(plan.getNombre());
+		p.setIdunidad(plan.getIdunidad());
+		p.setCiclos(plan.getCiclos());
+		p.setCursos(plan.getCursos());
+		p.setCreditos(plan.getCreditos());
+		p.setAnio_inicio(plan.getAnio_inicio());
+		p.setAnio_termino(plan.getAnio_termino());
+		return pser.update(p);
 	}
-	
-	
 }
