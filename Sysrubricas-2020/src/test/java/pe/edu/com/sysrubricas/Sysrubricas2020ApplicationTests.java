@@ -13,21 +13,24 @@ import pe.edu.com.sysrubricas.entity.ExpertoE;
 
 
 
+
 @SpringBootTest
 class Sysrubricas2020ApplicationTests {
 	@Autowired
+
 
 	private DocenteDao ld;
 	
 	@Autowired
 	private ExpertoEDao e;
 
-	
+
 
 	@Test
 	void contextLoads() {
 		
 		
+
 		//Docente doc = new Docente();
 		//doc.setCodigo(1111111111);
 		//doc.setIdpersona(41);
@@ -38,6 +41,9 @@ class Sysrubricas2020ApplicationTests {
 		l.setNombre("Gestión de TI");
 		l.setId_unidad(5);
 		System.out.println(ld.create(l));*/
+
+		
+
 	}
 }
 
