@@ -81,7 +81,15 @@ public class UnidadAcademicaDaoImp implements UnidadAcademicaDao {
 				SqlParameterSource in = new MapSqlParameterSource().addValue("nom", nom);
 				return simpleJdbcCall.execute(in);
 	}
-
+	@Override
+	public Map<String, Object> traerEscuela(int id){
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("pk_unidad")
+				.withProcedureName("sp_listar_ep")
+				.declareParameters(new SqlOutParameter("CURSOR_U", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("idpadre", Types.INTEGER));
+				SqlParameterSource in = new MapSqlParameterSource().addValue("idpadre", id);
+				return simpleJdbcCall.execute(in);
+	}
 
 
 }

@@ -14,5 +14,5 @@ public interface UnidadAcademicaDao {
 	Map<String,Object> readAll();
 	Map<String,Object> Campus();
 	Map<String,Object> readCampus(String nom);
-
+	Map<String, Object> traerEscuela(int id);
 }

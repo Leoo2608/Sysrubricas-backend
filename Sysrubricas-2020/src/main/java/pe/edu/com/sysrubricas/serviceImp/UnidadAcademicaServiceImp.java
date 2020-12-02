@@ -62,7 +62,9 @@ public class UnidadAcademicaServiceImp implements UnidadAcademicaService {
 		// TODO Auto-generated method stub
 		return uni.readCampus(nom);
 	}
-	
-	
+	@Override
+	public Map<String, Object> traerEscuela(int id){
+		return uni.traerEscuela(id);
+	}
 
 }

@@ -60,4 +60,9 @@ public class PlanAcademicoController {
 		p.setAnio_termino(plan.getAnio_termino());
 		return pser.update(p);
 	}
+	@GetMapping("/planes/xunidad/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	Map<String, Object> readxUnidad(@PathVariable int id){
+		return pser.readxUnidad(id);
+	}
 }

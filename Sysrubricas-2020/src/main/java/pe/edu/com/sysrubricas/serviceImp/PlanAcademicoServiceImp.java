@@ -36,5 +36,9 @@ public class PlanAcademicoServiceImp implements PlanAcademicoService {
 	public Map<String, Object> readAll() {
 		return pdao.readAll();
 	}
+	@Override
+	public Map<String, Object> readxUnidad(int id){
+		return pdao.readxUnidad(id);
+	}
 
 }

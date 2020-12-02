@@ -61,7 +61,7 @@ public class UnidadAcademicaController {
 	   uss.setId_unidad(id);
 	   uss.setNombre(u.getNombre());
 	   uss.setId_padre(u.getId_padre());
-		return us.update(uss);
+	   return us.update(uss);
 		
 	}
 	@DeleteMapping("/unidad/{id}")
@@ -70,6 +70,10 @@ public class UnidadAcademicaController {
 		return us.delete(id);
 	}
 	
-	
+	@GetMapping("/unidad/escuela/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> traerEscuela(@PathVariable int id){
+		return us.traerEscuela(id);
+	}
 
 }
