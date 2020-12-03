@@ -21,6 +21,8 @@ class Sysrubricas2020ApplicationTests {
 	private PlanAcademicoDao pd;
 	@Autowired
 	private UnidadAcademicaDao ud;
+	@Autowired
+	private PlanLineaDao pldao;
 	@Test
 	void contextLoads() {
 
@@ -35,7 +37,7 @@ class Sysrubricas2020ApplicationTests {
 		p.setAnio_termino("25/12/2020");
 		System.out.println(pd.update(p));*/
 		//System.out.println(ud.Campus());
-		System.out.println(pd.readxUnidad(5));
+		System.out.println(pldao.lineasxPlan(21));
 	}	
 
 }

@@ -41,5 +41,8 @@ public class PlanLineaServiceImp implements PlanLineaService {
 	public Map<String, Object> readAllDin() {
 		return pldao.readAllDin();
 	}
-
+	@Override
+	public Map<String, Object> lineasxPlan(int id){
+		return pldao.lineasxPlan(id);
+	}
 }

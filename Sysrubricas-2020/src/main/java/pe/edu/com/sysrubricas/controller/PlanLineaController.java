@@ -55,4 +55,9 @@ public class PlanLineaController {
 		pl.setIdlinea(planl.getIdlinea());
 		return plser.update(pl);
 	}
+	@GetMapping("/planlineas/lineas/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> lineasxPlan(@PathVariable int id){
+		return plser.lineasxPlan(id);
+	}
 }
