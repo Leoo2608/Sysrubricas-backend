@@ -27,28 +27,22 @@ public class PersonaServiceImp implements PersonaService {
 	}
 
 	@Override
-	public Persona readUpdateEvaluador(int id) {
+	public int deletePersona(int id) {
 		// TODO Auto-generated method stub
-		return personDao.readUpdateEvaluador(id);
+		return personDao.deletePersona(id);
 	}
 
 	@Override
-	public Map<String, Object> deleteEvaluador(int id) {
+	public Map<String, Object> readPersona(int id) {
 		// TODO Auto-generated method stub
-		return personDao.deleteEvaluador(id);
+		return personDao.readPersona(id);
 	}
 
 	@Override
-	public Map<String, Object> read(int id) {
+	public Map<String, Object> readAllPersona() {
 		// TODO Auto-generated method stub
-		return personDao.read(id);
+		return personDao.readAllPersona();
 	}
 
-	@Override
-	public Map<String, Object> readAll() {
-		// TODO Auto-generated method stub
-		return personDao.readAll();
-	}
-	
 
 }

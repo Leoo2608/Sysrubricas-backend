@@ -13,6 +13,7 @@ import pe.edu.com.sysrubricas.service.EvaluadorService;
 public class EvaluadorServiceImp implements EvaluadorService {
 	@Autowired
 	private EvaluadorDao evaluadorDao;
+
 	@Override
 	public int createEvaluador(Evaluador ev) {
 		// TODO Auto-generated method stub
@@ -26,27 +27,22 @@ public class EvaluadorServiceImp implements EvaluadorService {
 	}
 
 	@Override
-	public Evaluador readUpdateEvaluador(int id) {
-		// TODO Auto-generated method stub
-		return evaluadorDao.readUpdateEvaluador(id);
-	}
-
-	@Override
-	public Map<String, Object> deleteEvaluador(int id) {
+	public int deleteEvaluador(int id) {
 		// TODO Auto-generated method stub
 		return evaluadorDao.deleteEvaluador(id);
 	}
 
 	@Override
-	public Map<String, Object> read(int id) {
+	public Map<String, Object> readEvaluador(int id) {
 		// TODO Auto-generated method stub
-		return evaluadorDao.read(id);
+		return evaluadorDao.readEvaluador(id);
 	}
 
 	@Override
-	public Map<String, Object> readAll() {
+	public Map<String, Object> readAllEvaluador() {
 		// TODO Auto-generated method stub
-		return evaluadorDao.readAll();
+		return evaluadorDao.readAllEvaluador();
 	}
+
 
 }

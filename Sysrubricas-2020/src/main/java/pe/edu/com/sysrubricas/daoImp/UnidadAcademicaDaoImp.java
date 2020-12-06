@@ -14,9 +14,9 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Component;
 
 import oracle.jdbc.internal.OracleTypes;
-import pe.edu.com.sysrubricas.dao.TipoUnidadAcademicaDao;
+
 import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
-import pe.edu.com.sysrubricas.entity.TipoUnidadAcademica;
+
 import pe.edu.com.sysrubricas.entity.UnidadAcademica;
 @Component
 

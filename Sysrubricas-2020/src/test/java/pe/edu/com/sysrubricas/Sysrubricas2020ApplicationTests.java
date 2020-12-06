@@ -6,19 +6,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
 
-import pe.edu.com.sysrubricas.dao.PlanAcademicoDao;
-import pe.edu.com.sysrubricas.dao.PlanLineaDao;
+
 import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
 import pe.edu.com.sysrubricas.entity.LineaAcademica;
 
-import pe.edu.com.sysrubricas.entity.PlanAcademico;
-import pe.edu.com.sysrubricas.entity.PlanLinea;
 
 
 @SpringBootTest
 class Sysrubricas2020ApplicationTests {
-	@Autowired
-	private PlanAcademicoDao pd;
 	@Autowired
 	private UnidadAcademicaDao ud;
 	@Test
@@ -35,7 +30,6 @@ class Sysrubricas2020ApplicationTests {
 		p.setAnio_termino("25/12/2020");
 		System.out.println(pd.update(p));*/
 		//System.out.println(ud.Campus());
-		System.out.println(pd.readxUnidad(5));
 	}	
 
 }

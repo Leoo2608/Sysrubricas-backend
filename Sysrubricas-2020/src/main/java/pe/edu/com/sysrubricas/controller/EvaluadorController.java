@@ -13,46 +13,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pe.edu.com.sysrubricas.entity.PlanLinea;
-import pe.edu.com.sysrubricas.service.PlanLineaService;
+import pe.edu.com.sysrubricas.entity.Evaluador;
+import pe.edu.com.sysrubricas.service.EvaluadorService;
 
 @RestController
 @RequestMapping("/api")
-public class PlanLineaController {
+public class EvaluadorController {
 	@Autowired
-	private PlanLineaService plser;
+	private EvaluadorService evaluadorService;
 	
-	@GetMapping("/planlineas")
+	@GetMapping("/evaluadores")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Map<String, Object> readAllDin(){
-		return plser.readAllDin();
+	public Map<String, Object> readAll(){
+		return evaluadorService.readAllEvaluador();
 	}
-	
-	@GetMapping("/planlineas/{id}")
+	@GetMapping("/evaluadores/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Map<String, Object> read(@PathVariable int id){
-		return plser.read(id);
+	public Map<String, Object> read(@PathVariable int id) {
+		return evaluadorService.readEvaluador(id);
 	}
-	
-	@PostMapping("/planlineas/add")
+	@PostMapping("/evaluadores/add")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int create(@RequestBody PlanLinea pl) {
-		return plser.create(pl);
+	public int create(@RequestBody Evaluador ev) {
+		return evaluadorService.createEvaluador(ev);
 	}
-	
-	@DeleteMapping("/planlineas/delete/{id}")
+	@DeleteMapping("/evaluadores/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int delete(@PathVariable int id) {
-		return plser.delete(id);
+		return evaluadorService.deleteEvaluador(id);
 	}
 	
-	@PutMapping("/planlineas/update/{id}")
+	@PutMapping("/evaluadores/update/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int update(@RequestBody PlanLinea planl, @PathVariable int id) {
-		PlanLinea pl  = new PlanLinea();
-		pl.setIdplan_l(id);
-		pl.setIdplan(planl.getIdplan());
-		pl.setIdlinea(planl.getIdlinea());
-		return plser.update(pl);
+	public int update(@RequestBody Evaluador ev,@PathVariable int id) {
+		Evaluador evaluador = new Evaluador();
+		evaluador.setIdevaluador(id);
+		evaluador.setId_persona(ev.getId_persona());
+		evaluador.setId_proyecto(ev.getId_proyecto());
+		evaluador.setTipo(ev.getTipo());
+		return evaluadorService.updateEvaluador(evaluador);
 	}
 }

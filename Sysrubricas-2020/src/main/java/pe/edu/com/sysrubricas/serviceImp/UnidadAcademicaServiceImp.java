@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
-import pe.edu.com.sysrubricas.entity.TipoUnidadAcademica;
+
 import pe.edu.com.sysrubricas.entity.UnidadAcademica;
-import pe.edu.com.sysrubricas.service.TipoUnidadAcademicaService;
+
 import pe.edu.com.sysrubricas.service.UnidadAcademicaService;
 @Service
 public class UnidadAcademicaServiceImp implements UnidadAcademicaService {

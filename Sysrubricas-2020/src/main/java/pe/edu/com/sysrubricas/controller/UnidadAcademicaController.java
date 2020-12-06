@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
-import pe.edu.com.sysrubricas.entity.TipoUnidadAcademica;
+
 import pe.edu.com.sysrubricas.entity.UnidadAcademica;
-import pe.edu.com.sysrubricas.service.TipoUnidadAcademicaService;
+
 import pe.edu.com.sysrubricas.service.UnidadAcademicaService;
 @RestController
 @RequestMapping("/api")
