@@ -4,11 +4,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import pe.edu.com.sysrubricas.dao.CompetenciaNivelDao;
 import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
 
 import pe.edu.com.sysrubricas.dao.PlanAcademicoDao;
 import pe.edu.com.sysrubricas.dao.PlanLineaDao;
 import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
+import pe.edu.com.sysrubricas.entity.CompetenciaNivel;
 import pe.edu.com.sysrubricas.entity.LineaAcademica;
 
 import pe.edu.com.sysrubricas.entity.PlanAcademico;
@@ -22,10 +24,9 @@ class Sysrubricas2020ApplicationTests {
 	@Autowired
 	private UnidadAcademicaDao ud;
 	@Autowired
-	private PlanLineaDao pldao;
+	private CompetenciaNivelDao cnd;
 	@Test
 	void contextLoads() {
-
 		/*PlanAcademico p = new PlanAcademico();
 		p.setIdplan(23);
 		p.setNombre("2016-1 EP Ingeniería de Sistemas - Sede Lima");
@@ -37,7 +38,13 @@ class Sysrubricas2020ApplicationTests {
 		p.setAnio_termino("25/12/2020");
 		System.out.println(pd.update(p));*/
 		//System.out.println(ud.Campus());
-		System.out.println(pldao.lineasxPlan(21));
+		CompetenciaNivel cn = new CompetenciaNivel();
+		cn.setIdcomp_n(21);
+		cn.setIdcomp(2);
+		cn.setIdnivel(1);
+		cn.setSaber("");
+		cn.setHacer("");
+		System.out.println(cnd.update(cn));
 	}	
 
 }
