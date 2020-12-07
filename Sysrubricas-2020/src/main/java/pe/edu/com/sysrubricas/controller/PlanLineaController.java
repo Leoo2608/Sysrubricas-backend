@@ -13,44 +13,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pe.edu.com.sysrubricas.entity.LineaAcademica;
-import pe.edu.com.sysrubricas.service.LineaAcademicaService;
+import pe.edu.com.sysrubricas.entity.PlanLinea;
+import pe.edu.com.sysrubricas.service.PlanLineaService;
 
 @RestController
 @RequestMapping("/api")
-public class LineaAcademicaController {
+public class PlanLineaController {
 	@Autowired
-	private LineaAcademicaService lser;
+	private PlanLineaService plser;
 	
-	@GetMapping("/lineas")
+	@GetMapping("/planlineas")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Map<String, Object> readAll(){
-		return lser.readAll();
+	public Map<String, Object> readAllDin(){
+		return plser.readAllDin();
 	}
-	@GetMapping("/lineas/{id}")
+	
+	@GetMapping("/planlineas/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Map<String, Object> read(@PathVariable int id) {
-		return lser.read(id);
+	public Map<String, Object> read(@PathVariable int id){
+		return plser.read(id);
 	}
-	@PostMapping("/lineas/add")
+	
+	@PostMapping("/planlineas/add")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int create(@RequestBody LineaAcademica l) {
-		return lser.create(l);
+	public int create(@RequestBody PlanLinea pl) {
+		return plser.create(pl);
 	}
-	@DeleteMapping("/lineas/delete/{id}")
+	
+	@DeleteMapping("/planlineas/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int delete(@PathVariable int id) {
-		return lser.delete(id);
+		return plser.delete(id);
 	}
 	
-	@PutMapping("/lineas/update/{id}")
+	@PutMapping("/planlineas/update/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int update(@RequestBody LineaAcademica linea,@PathVariable int id) {
-		LineaAcademica l = new LineaAcademica();
-		l.setId_linea(id);
-		l.setNombre(linea.getNombre());
-		return lser.update(l);
+	public int update(@RequestBody PlanLinea planl, @PathVariable int id) {
+		PlanLinea pl  = new PlanLinea();
+		pl.setIdplan_l(id);
+		pl.setIdplan(planl.getIdplan());
+		pl.setIdlinea(planl.getIdlinea());
+		return plser.update(pl);
 	}
-	
-	
 }

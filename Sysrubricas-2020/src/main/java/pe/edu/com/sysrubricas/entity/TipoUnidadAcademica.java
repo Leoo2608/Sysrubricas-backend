@@ -1,23 +1,23 @@
 package pe.edu.com.sysrubricas.entity;
 
-public class LineaAcademica {
-	private int id_linea;
+public class TipoUnidadAcademica {
+	private int id_tipoUnidad;
 	private String nombre;
 	private char estado;
-	public LineaAcademica() {
+	public TipoUnidadAcademica(int id_tipoUnidad, String nombre, char estado) {
 		super();
-	}
-	public LineaAcademica(int id_linea, String nombre, char estado) {
-		super();
-		this.id_linea = id_linea;
+		this.id_tipoUnidad = id_tipoUnidad;
 		this.nombre = nombre;
 		this.estado = estado;
 	}
-	public int getId_linea() {
-		return id_linea;
+	public TipoUnidadAcademica() {
+		super();
 	}
-	public void setId_linea(int id_linea) {
-		this.id_linea = id_linea;
+	public int getId_tipoUnidad() {
+		return id_tipoUnidad;
+	}
+	public void setId_tipoUnidad(int id_tipoUnidad) {
+		this.id_tipoUnidad = id_tipoUnidad;
 	}
 	public String getNombre() {
 		return nombre;

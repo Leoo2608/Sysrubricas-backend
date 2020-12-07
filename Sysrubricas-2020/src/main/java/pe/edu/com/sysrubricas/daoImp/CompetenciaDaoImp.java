@@ -14,46 +14,47 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Component;
 
 import oracle.jdbc.internal.OracleTypes;
-import pe.edu.com.sysrubricas.dao.SemestreDao;
-import pe.edu.com.sysrubricas.entity.Semestre;
+import pe.edu.com.sysrubricas.dao.CompetenciaDao;
+import pe.edu.com.sysrubricas.entity.Competencia;
+
+
 @Component
-public class SemestreDaoImp implements SemestreDao {
+public class CompetenciaDaoImp implements CompetenciaDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
 	@Override
-	public int create(Semestre s) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_CREATE_S(?)", s.getNombre());
-		
+	public int create(Competencia comp) {
+		return jdbcTemplate.update("CALL PK_COMPETENCIA.SP_CREATE_C(?,?,?,?)", comp.getNombre(),comp.getIdplan_l(),comp.getDescripcion(),comp.getTipo());
 	}
 
 	@Override
-	public int update(Semestre s) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_S(?)", s.getNombre());
+	public int update(Competencia comp) {
+		return jdbcTemplate.update("CALL PK_COMPETENCIA.SP_UPDATE_C(?,?,?,?,?)",comp.getIdcomp(), comp.getNombre(),comp.getIdplan_l(),comp.getDescripcion(),comp.getTipo());
 	}
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_DELETE_S(?)", id);
+		return jdbcTemplate.update("CALL PK_COMPETENCIA.SP_DELETE_C(?)", id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		System.out.println(id);
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-		.withCatalogName("PK_SEMESTRE")
-		.withProcedureName("SP_READ_S")
-		.declareParameters(new SqlOutParameter("CURSOR_SEMESTRES", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("ID_SEMESTRE", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("ID_SEMESTRE", id);
+		.withCatalogName("PK_COMPETENCIA")
+		.withProcedureName("SP_READ_C")
+		.declareParameters(new SqlOutParameter("CURSOR_C", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("ID_C", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("ID_C", id);
 		return simpleJdbcCall.execute(in);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-				.withCatalogName("pk_semestre")
-				.withProcedureName("sp_listar_s")
-				.declareParameters(new SqlOutParameter("cursor_semestres", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+				.withCatalogName("PK_COMPETENCIA")
+				.withProcedureName("SP_LISTAR_C")
+				.declareParameters(new SqlOutParameter("cursor_C", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
 	}
 

@@ -13,43 +13,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pe.edu.com.sysrubricas.entity.LineaAcademica;
+import pe.edu.com.sysrubricas.entity.Competencia;
 import pe.edu.com.sysrubricas.entity.Semestre;
-import pe.edu.com.sysrubricas.entity.TipoUnidadAcademica;
-import pe.edu.com.sysrubricas.service.SemestreService;
+import pe.edu.com.sysrubricas.service.CompetenciaService;
+
 
 @RestController
-@RequestMapping("/semestres")
-public class SemestreController {
+@RequestMapping("/competencia")
+public class CompetenciaController {
 	@Autowired
-	private SemestreService sser;
+	private CompetenciaService compser;
 	
 	@GetMapping("/all")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Map<String, Object> readAll(){
-		return sser.readAll();
+		return compser.readAll();
 	}
-	
 	@PostMapping("/add")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int create(@RequestBody Semestre s) {
-		Semestre semestre = new Semestre();
-		semestre.setNombre(s.getNombre());
-		return sser.create(semestre);
+	public int create(@RequestBody Competencia comp) {
+		Competencia competencia = new Competencia();
+		competencia.setNombre(comp.getNombre());
+		return compser.create(competencia);
 	}
 	
-	@DeleteMapping("/semestre/delete/{id}")
+	@DeleteMapping("/competencia/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int delete(@PathVariable int id) {
-		return sser.delete(id);
+		return compser.delete(id);
 	}
-	@PutMapping("/semestre/update/{id}")
+	@PutMapping("/competencia/update/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int update(@RequestBody Semestre semestres,@PathVariable int id) {
-		Semestre semestre = new Semestre();
-		semestre.setId_semestre(id);
-		semestre.setNombre(semestres.getNombre());
-		return sser.update(semestre);
+	public int update(@RequestBody Competencia compe,@PathVariable int id) {
+		Competencia competencia = new Competencia();
+		competencia.setIdcomp(id);
+		competencia.setNombre(compe.getNombre());
+		return compser.update(competencia);
 	}
-	
 }
