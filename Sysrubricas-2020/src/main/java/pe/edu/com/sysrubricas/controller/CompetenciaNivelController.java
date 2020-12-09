@@ -13,47 +13,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pe.edu.com.sysrubricas.entity.Competencia;
-import pe.edu.com.sysrubricas.entity.Semestre;
-import pe.edu.com.sysrubricas.service.CompetenciaService;
-
+import pe.edu.com.sysrubricas.entity.CompetenciaNivel;
+import pe.edu.com.sysrubricas.service.CompetenciaNivelService;
 
 @RestController
-@RequestMapping("/competencias")
-public class CompetenciaController {
+@RequestMapping("/api")
+public class CompetenciaNivelController {
 	@Autowired
-	private CompetenciaService compser;
+	private CompetenciaNivelService cs;
 	
-	@GetMapping("/all")
+	@GetMapping("/cmpniveles")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Map<String, Object> readAll(){
-		return compser.readAll();
-	}
-	@GetMapping("/{id}")
-	@CrossOrigin(origins = "http://localhost:4200")
-	public Map<String, Object> read(@PathVariable int id) {
-		return compser.read(id);
-	}
-	@PostMapping("/add")
-	@CrossOrigin(origins = "http://localhost:4200")
-	public int create(@RequestBody Competencia comp) {
-		Competencia competencia = new Competencia();
-		competencia.setNombre(comp.getNombre());
-		competencia.setIdplan_l(comp.getIdplan_l());
-		competencia.setDescripcion(comp.getDescripcion());
-		competencia.setTipo(comp.getTipo());
-		return compser.create(competencia);
+		return cs.readAll();
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@GetMapping("/cmpniveles/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> read(@PathVariable int id){
+		return cs.read(id);
+	}
+	@PostMapping("/cmpniveles/add")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public int create(@RequestBody CompetenciaNivel cn) {
+		return cs.create(cn);
+	}
+	@DeleteMapping("/cmpniveles/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int delete(@PathVariable int id) {
-		return compser.delete(id);
+		return cs.delete(id);
 	}
-	@PutMapping("/update/{id}")
+	@PutMapping("/cmpniveles/update/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int update(@RequestBody Competencia competencia,@PathVariable int id) {
-		competencia.setIdcomp(id);
-		return compser.update(competencia);
+	public int update(@RequestBody CompetenciaNivel compn, @PathVariable int id) {
+		CompetenciaNivel c = new CompetenciaNivel();
+		c.setIdcomp_n(id);
+		c.setIdcomp(compn.getIdcomp());
+		c.setIdnivel(compn.getIdnivel());
+		c.setSaber(compn.getSaber());
+		c.setHacer(compn.getHacer());
+		return cs.update(c);
 	}
 }

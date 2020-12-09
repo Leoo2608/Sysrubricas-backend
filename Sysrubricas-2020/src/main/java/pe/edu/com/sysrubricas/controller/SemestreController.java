@@ -30,6 +30,12 @@ public class SemestreController {
 		return sser.readAll();
 	}
 	
+	@GetMapping("/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> read(@PathVariable int id) {
+		return sser.read(id);
+	}
+	
 	@PostMapping("/add")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int create(@RequestBody Semestre s) {
@@ -38,12 +44,12 @@ public class SemestreController {
 		return sser.create(semestre);
 	}
 	
-	@DeleteMapping("/semestre/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int delete(@PathVariable int id) {
 		return sser.delete(id);
 	}
-	@PutMapping("/semestre/update/{id}")
+	@PutMapping("/update/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int update(@RequestBody Semestre semestres,@PathVariable int id) {
 		Semestre semestre = new Semestre();

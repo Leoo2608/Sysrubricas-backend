@@ -64,4 +64,14 @@ public class PlanLineaDaoImp implements PlanLineaDao {
 				.declareParameters(new SqlOutParameter("cursor_pl", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
 	}
+	@Override
+	public Map<String, Object> lineasxPlan(int id){
+		System.out.println(id);
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+		.withCatalogName("pk_plan_linea")
+		.withProcedureName("sp_traerlineasxplan")
+		.declareParameters(new SqlOutParameter("CURSOR_PL", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDP", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("IDP", id);
+		return simpleJdbcCall.execute(in);
+	}
 }

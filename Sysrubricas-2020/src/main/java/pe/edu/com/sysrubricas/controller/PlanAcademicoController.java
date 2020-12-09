@@ -62,7 +62,12 @@ public class PlanAcademicoController {
 	}
 	@GetMapping("/planes/xunidad/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	Map<String, Object> readxUnidad(@PathVariable int id){
+	public Map<String, Object> readxUnidad(@PathVariable int id){
 		return pser.readxUnidad(id);
+	}
+	@GetMapping("/planes/xunidad/selector/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> readPlanforSelector(@PathVariable int id){
+		return pser.readPlanforSelector(id);
 	}
 }

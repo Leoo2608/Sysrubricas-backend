@@ -29,7 +29,7 @@ public class SemestreDaoImp implements SemestreDao {
 
 	@Override
 	public int update(Semestre s) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_S(?)", s.getNombre());
+		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_S(?,?)", s.getId_semestre(), s.getNombre());
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public class SemestreDaoImp implements SemestreDao {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 		.withCatalogName("PK_SEMESTRE")
 		.withProcedureName("SP_READ_S")
-		.declareParameters(new SqlOutParameter("CURSOR_SEMESTRES", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("ID_SEMESTRE", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("ID_SEMESTRE", id);
+		.declareParameters(new SqlOutParameter("CURSOR_SEMESTRES", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDS", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("IDS", id);
 		return simpleJdbcCall.execute(in);
 	}
 

@@ -11,5 +11,6 @@ public interface PlanLineaDao {
 	Map<String, Object> read(int id);
 	Map<String, Object> readAll();
 	Map<String, Object> readAllDin();
+	Map<String, Object> lineasxPlan(int id);
 }
 

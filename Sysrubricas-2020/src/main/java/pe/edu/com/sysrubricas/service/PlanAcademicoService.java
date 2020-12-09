@@ -11,4 +11,5 @@ public interface PlanAcademicoService {
 	Map<String,Object> read(int id);
 	Map<String,Object> readAll();
 	Map<String, Object> readxUnidad(int id);
+	Map<String, Object> readPlanforSelector(int id);
 }
