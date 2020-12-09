@@ -29,7 +29,7 @@ class Sysrubricas2020ApplicationTests {
 		//Docente doc = new Docente();
 		//doc.setCodigo(1111111111);
 		//doc.setIdpersona(41);
-		System.out.println(ld.delete(1111111111));
+		System.out.println(ld.readAll());
 		//System.out.println(ld.read(1111111111));
 		//ld.delete(21);
 		/*LineaAcademica l = new LineaAcademica();
