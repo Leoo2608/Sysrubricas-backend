@@ -10,4 +10,5 @@ public interface CompetenciaNivelService {
 	int delete(int id);
 	Map<String, Object> read(int id);
 	Map<String,Object> readAll();
+	Map<String, Object> readAllDin(int id);
 }
