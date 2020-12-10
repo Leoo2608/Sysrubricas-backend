@@ -23,27 +23,27 @@ public class SemestreDaoImp implements SemestreDao {
 	private SimpleJdbcCall simpleJdbcCall;
 	@Override
 	public int create(Semestre s) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_CREATE_S(?)", s.getNombre());
+		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_CREATE_SEMESTRE(?)", s.getNombre());
 		
 	}
 
 	@Override
 	public int update(Semestre s) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_S(?,?)", s.getId_semestre(), s.getNombre());
+		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_SEMESTRE(?,?)", s.getId_semestre(), s.getNombre());
 	}
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_DELETE_S(?)", id);
+		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_DELETE_SEMESTRE(?)", id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		System.out.println(id);
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-		.withCatalogName("PK_SEMESTRE")
-		.withProcedureName("SP_READ_S")
-		.declareParameters(new SqlOutParameter("CURSOR_SEMESTRES", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDS", Types.INTEGER));
+		.withCatalogName("pk_semestre")
+		.withProcedureName("sp_read_semestre")
+		.declareParameters(new SqlOutParameter("cursor_semestre", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDS", Types.INTEGER));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("IDS", id);
 		return simpleJdbcCall.execute(in);
 	}
@@ -52,8 +52,8 @@ public class SemestreDaoImp implements SemestreDao {
 	public Map<String, Object> readAll() {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 				.withCatalogName("pk_semestre")
-				.withProcedureName("sp_listar_s")
-				.declareParameters(new SqlOutParameter("cursor_semestres", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+				.withProcedureName("sp_listar_semestre")
+				.declareParameters(new SqlOutParameter("cursor_semestre", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
 	}
 
