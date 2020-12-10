@@ -30,7 +30,7 @@ public class EvaluadorDaoImp implements EvaluadorDao {
 	public int updateEvaluador(Evaluador ev) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call pkg_evaluador.sp_update_evaluador(? , ? , ? , ?)"
-, ev.getIdevaluador() , ev.getId_persona() , ev.getId_proyecto() , ev.getTipo() );
+, ev.getIdevaluador() , ev.getId_persona() , ev.getId_proyecto() , ev.getTipo());
 	}
 	@Override
 	public int deleteEvaluador(int id) {
@@ -45,7 +45,7 @@ public class EvaluadorDaoImp implements EvaluadorDao {
 		.withCatalogName("pkg_evaluador")
 		.withProcedureName("sp_read_evaluador")
 		.declareParameters(new SqlParameter("idevaluador", Types.INTEGER),new SqlOutParameter("cursor_evaluadores", OracleTypes.CURSOR, new ColumnMapRowMapper()));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("idevaluador", id);
+		SqlParameterSource in = new MapSqlParameterSource().addValue("P_ideval", id);
 		return simpleJdbcCall.execute(in);
 	}
 	@Override

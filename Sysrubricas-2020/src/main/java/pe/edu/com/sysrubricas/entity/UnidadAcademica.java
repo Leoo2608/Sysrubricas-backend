@@ -1,8 +1,5 @@
 package pe.edu.com.sysrubricas.entity;
 
-
-
-
 public class UnidadAcademica {
 	private int id_unidad;
 	private String nombre;

@@ -4,11 +4,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import pe.edu.com.sysrubricas.dao.EvaluadorDao;
 import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
-
-
+import pe.edu.com.sysrubricas.dao.PersonaDao;
 import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
+import pe.edu.com.sysrubricas.entity.Evaluador;
 import pe.edu.com.sysrubricas.entity.LineaAcademica;
+import pe.edu.com.sysrubricas.entity.Persona;
 
 
 
@@ -16,20 +18,24 @@ import pe.edu.com.sysrubricas.entity.LineaAcademica;
 class Sysrubricas2020ApplicationTests {
 	@Autowired
 	private UnidadAcademicaDao ud;
+	@Autowired
+	private PersonaDao personaDao;
+	@Autowired
+	private EvaluadorDao evaluadorDao;
+	
 	@Test
 	void contextLoads() {
-
-		/*PlanAcademico p = new PlanAcademico();
-		p.setIdplan(23);
-		p.setNombre("2016-1 EP Ingeniería de Sistemas - Sede Lima");
-		p.setIdunidad(5);
-		p.setCiclos(10);
-		p.setCreditos(201);
-		p.setCursos(70);
-		p.setAnio_inicio("02/03/2016");
-		p.setAnio_termino("25/12/2020");
-		System.out.println(pd.update(p));*/
-		//System.out.println(ud.Campus());
+	/*	Persona p = new Persona();
+		p.setId_persona(1);
+		p.setNombres("JeanPaul");
+		System.out.println(personaDao.updatePersona(p));*/
+		
+		Evaluador ev = new Evaluador();
+		ev.setIdevaluador(4);
+		ev.setId_persona(22);
+		ev.setId_proyecto(1);
+		ev.setTipo("Evs.Interno");
+		System.out.println(evaluadorDao.updateEvaluador(ev));
 	}	
 
 }

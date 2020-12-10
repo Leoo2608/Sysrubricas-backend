@@ -1,18 +1,18 @@
 package pe.edu.com.sysrubricas.entity;
 
 public class Persona {
-	private int  id_persona;
+	private int id_persona;
 	private String nombres;
 	private String ape_pat;
 	private String ape_mat;
 	private String dni;
 	private String telefono;
-	private String estado;
+	private int estado;
 	public Persona() {
 		super();
 	}
 	public Persona(int id_persona, String nombres, String ape_pat, String ape_mat, String dni, String telefono,
-			String estado) {
+			int estado) {
 		super();
 		this.id_persona = id_persona;
 		this.nombres = nombres;
@@ -58,10 +58,10 @@ public class Persona {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public String getEstado() {
+	public int getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
 }

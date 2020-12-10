@@ -2,7 +2,7 @@ package pe.edu.com.sysrubricas.service;
 
 import java.util.Map;
 
-import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
+
 import pe.edu.com.sysrubricas.entity.UnidadAcademica;
 
 public interface UnidadAcademicaService {

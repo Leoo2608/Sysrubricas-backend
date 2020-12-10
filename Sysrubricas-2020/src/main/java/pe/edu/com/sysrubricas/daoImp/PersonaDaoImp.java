@@ -30,7 +30,7 @@ public class PersonaDaoImp implements PersonaDao {
 	@Override
 	public int updatePersona(Persona p) {
 		// TODO Auto-generated method stub
- return jdbcTemplate.update("call  pk_persona.sp_update_persona(? , ? , ? , ? ,? ,? )"
+ return jdbcTemplate.update("call  pk_persona.sp_update_persona(?, ? , ? , ? ,? ,?)"
  , p.getId_persona() ,p.getNombres() , p.getApe_pat() , p.getApe_mat() , p.getDni() , p.getTelefono());
 	}
 	@Override
@@ -46,7 +46,7 @@ public class PersonaDaoImp implements PersonaDao {
 		.withCatalogName("pk_persona")
 		.withProcedureName("sp_read_persona")
 		.declareParameters(new SqlParameter("id_persona", Types.INTEGER),new SqlOutParameter("cursor_personas", OracleTypes.CURSOR, new ColumnMapRowMapper()));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("id_persona", id);
+		SqlParameterSource in = new MapSqlParameterSource().addValue("P_IDPERSONA", id);
 		return simpleJdbcCall.execute(in);
 	}
 	@Override

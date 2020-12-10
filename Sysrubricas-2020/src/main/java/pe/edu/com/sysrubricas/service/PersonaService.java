@@ -2,11 +2,11 @@ package pe.edu.com.sysrubricas.service;
 
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
+
 
 import pe.edu.com.sysrubricas.entity.Persona;
 
-@Service
+
 public interface PersonaService {
 	int createPersona (Persona p);
 	int updatePersona (Persona p);
