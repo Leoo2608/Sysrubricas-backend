@@ -5,37 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.edu.com.sysrubricas.dao.CompetenciaCursoDao;
-import pe.edu.com.sysrubricas.dao.CompetenciaDao;
-import pe.edu.com.sysrubricas.dao.CompetenciaNivelDao;
-import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
-
-import pe.edu.com.sysrubricas.dao.NiveldeLogroDao;
-import pe.edu.com.sysrubricas.dao.SemestreDao;
-
-
-import pe.edu.com.sysrubricas.dao.PlanAcademicoDao;
-import pe.edu.com.sysrubricas.dao.PlanLineaDao;
-import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
-import pe.edu.com.sysrubricas.entity.CompetenciaCurso;
-import pe.edu.com.sysrubricas.entity.CompetenciaNivel;
-
-import pe.edu.com.sysrubricas.entity.LineaAcademica;
-
-import pe.edu.com.sysrubricas.entity.PlanAcademico;
-import pe.edu.com.sysrubricas.entity.PlanLinea;
+import pe.edu.com.sysrubricas.dao.Curso_planDao;
 
 
 @SpringBootTest
 class Sysrubricas2020ApplicationTests {
 	@Autowired
-	private CompetenciaNivelDao cndao;
-	@Autowired
-	private NiveldeLogroDao ndao;
-	@Autowired
 	private CompetenciaCursoDao ccdao;
+	@Autowired
+	private Curso_planDao d;
+
 	@Test
 	void contextLoads() {
-		System.out.println(ccdao.delete(42));
+
+		System.out.println(d.readxPlan(21));
 	}	
 }	
 
