@@ -65,5 +65,15 @@ public class CompetenciaNivelDaoImp implements CompetenciaNivelDao {
 		SqlParameterSource in = new MapSqlParameterSource().addValue("IDC", id);
 		return simpleJdbcCall.execute(in);
 	}
+	@Override
+	public Map<String, Object> selector(int id){
+		System.out.println(id);
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+		.withCatalogName("pk_competencia_nivel")
+		.withProcedureName("sp_listar_xcomp")
+		.declareParameters(new SqlOutParameter("CURSOR_CN", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDC", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("IDC", id);
+		return simpleJdbcCall.execute(in);
+	}
 
 }

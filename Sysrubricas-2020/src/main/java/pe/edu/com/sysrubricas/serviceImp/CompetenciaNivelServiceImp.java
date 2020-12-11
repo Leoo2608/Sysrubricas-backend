@@ -46,4 +46,8 @@ public class CompetenciaNivelServiceImp implements CompetenciaNivelService {
 	public Map<String, Object> readAllDin(int id){
 		return cnd.readAllDin(id);
 	}
+	@Override
+	public Map<String, Object> selector(int id){
+		return cnd.selector(id);
+	}
 }

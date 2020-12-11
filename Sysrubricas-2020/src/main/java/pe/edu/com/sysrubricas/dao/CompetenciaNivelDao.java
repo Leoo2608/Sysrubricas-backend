@@ -11,4 +11,5 @@ public interface CompetenciaNivelDao {
 	Map<String, Object> read(int id);
 	Map<String,Object> readAll();
 	Map<String, Object> readAllDin(int id);
+	Map<String, Object> selector(int id);
 }
