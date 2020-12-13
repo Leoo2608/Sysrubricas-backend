@@ -25,28 +25,29 @@ public class SemestreDaoImp implements SemestreDao {
 	private SimpleJdbcCall simpleJdbcCall;
 	@Override
 	public int create(Semestre s) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_CREATE_S(?)", s.getNombre());
+		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_CREATE_SEMESTRE(?)", s.getNombre());
 		
 	}
 
 	@Override
 	public int update(Semestre s) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_S(?,?)", s.getId_semestre(), s.getNombre());
+		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_SEMESTRE(?,?)", s.getId_semestre(), s.getNombre());
+
 	}
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_DELETE_S(?)", id);
+		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_DELETE_SEMESTRE(?)", id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		System.out.println(id);
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-		.withCatalogName("PK_SEMESTRE")
+		.withCatalogName("pk_semestre")
 		.withProcedureName("sp_read_semestre")
-		.declareParameters(new SqlOutParameter("CURSOR_SEMESTRE", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("P_idsemestre", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("P_idsemestre", id);
+		.declareParameters(new SqlOutParameter("cursor_semestre", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDS", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("IDS", id);
 		return simpleJdbcCall.execute(in);
 	}
 

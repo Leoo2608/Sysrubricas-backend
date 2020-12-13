@@ -45,7 +45,7 @@ public class CompetenciaDaoImp implements CompetenciaDao {
 		.withCatalogName("PK_COMPETENCIA")
 		.withProcedureName("SP_READ_C")
 		.declareParameters(new SqlOutParameter("CURSOR_C", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("ID_C", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("ID_C", id);
+		SqlParameterSource in = new MapSqlParameterSource().addValue("IDC", id);
 		return simpleJdbcCall.execute(in);
 	}
 
@@ -54,7 +54,7 @@ public class CompetenciaDaoImp implements CompetenciaDao {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 				.withCatalogName("PK_COMPETENCIA")
 				.withProcedureName("SP_LISTAR_C")
-				.declareParameters(new SqlOutParameter("cursor_C", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+				.declareParameters(new SqlOutParameter("CURSOR_C", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
 	}
 	@Override

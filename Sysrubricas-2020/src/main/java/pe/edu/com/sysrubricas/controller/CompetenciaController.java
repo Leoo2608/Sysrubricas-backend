@@ -19,7 +19,7 @@ import pe.edu.com.sysrubricas.service.CompetenciaService;
 
 
 @RestController
-@RequestMapping("/competencia")
+@RequestMapping("/competencias")
 public class CompetenciaController {
 	@Autowired
 	private CompetenciaService compser;
@@ -29,25 +29,31 @@ public class CompetenciaController {
 	public Map<String, Object> readAll(){
 		return compser.readAll();
 	}
+	@GetMapping("/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> read(@PathVariable int id) {
+		return compser.read(id);
+	}
 	@PostMapping("/add")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int create(@RequestBody Competencia comp) {
 		Competencia competencia = new Competencia();
 		competencia.setNombre(comp.getNombre());
+		competencia.setIdplan_l(comp.getIdplan_l());
+		competencia.setDescripcion(comp.getDescripcion());
+		competencia.setTipo(comp.getTipo());
 		return compser.create(competencia);
 	}
 	
-	@DeleteMapping("/competencia/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int delete(@PathVariable int id) {
 		return compser.delete(id);
 	}
-	@PutMapping("/competencia/update/{id}")
+	@PutMapping("/update/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public int update(@RequestBody Competencia compe,@PathVariable int id) {
-		Competencia competencia = new Competencia();
+	public int update(@RequestBody Competencia competencia,@PathVariable int id) {
 		competencia.setIdcomp(id);
-		competencia.setNombre(compe.getNombre());
 		return compser.update(competencia);
 	}
 	
