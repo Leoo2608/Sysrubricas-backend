@@ -33,7 +33,6 @@ class Sysrubricas2020ApplicationTests {
 	
 ///// Holaaa
 
-
 	private DocenteDao ld;
 	
 	@Autowired
