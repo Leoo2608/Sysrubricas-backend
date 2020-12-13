@@ -54,4 +54,16 @@ public class CompetenciaNivelController {
 		c.setHacer(compn.getHacer());
 		return cs.update(c);
 	}
+	@GetMapping("/cmpniveles/only/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> readAllDin(@PathVariable int id){
+		return cs.readAllDin(id);
+	}
+	
+	@GetMapping("/cmpniveles/selector/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> selector(@PathVariable int id){
+		return cs.selector(id);
+	}
 }
+

@@ -56,4 +56,11 @@ public class CompetenciaController {
 		competencia.setIdcomp(id);
 		return compser.update(competencia);
 	}
+	
+	@GetMapping("/allxplanl/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> readxPlan_l(@PathVariable int id){
+		return compser.readxPlan_l(id);
+	}
+	
 }

@@ -57,5 +57,15 @@ public class CompetenciaDaoImp implements CompetenciaDao {
 				.declareParameters(new SqlOutParameter("CURSOR_C", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
 	}
+	@Override
+	public Map<String, Object> readxPlan_l(int id){
+		System.out.println(id);
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+		.withCatalogName("PK_COMPETENCIA")
+		.withProcedureName("SP_READ_C_XIDPLANL")
+		.declareParameters(new SqlOutParameter("CURSOR_C", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDPL", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("IDPL", id);
+		return simpleJdbcCall.execute(in);
+	}
 
 }

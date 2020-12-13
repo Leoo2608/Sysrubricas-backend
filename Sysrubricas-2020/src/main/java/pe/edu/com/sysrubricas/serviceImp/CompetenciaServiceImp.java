@@ -39,4 +39,8 @@ public class CompetenciaServiceImp implements CompetenciaService {
 	public Map<String, Object> readAll() {
 		return compdao.readAll();
 	}
+	@Override
+	public Map<String, Object> readxPlan_l(int id){
+		return compdao.readxPlan_l(id);		
+	}
 }

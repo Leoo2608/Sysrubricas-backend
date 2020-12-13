@@ -42,5 +42,12 @@ public class CompetenciaNivelServiceImp implements CompetenciaNivelService {
 		// TODO Auto-generated method stub
 		return cnd.readAll();
 	}
-
+	@Override
+	public Map<String, Object> readAllDin(int id){
+		return cnd.readAllDin(id);
+	}
+	@Override
+	public Map<String, Object> selector(int id){
+		return cnd.selector(id);
+	}
 }
