@@ -7,8 +7,8 @@ import pe.edu.com.sysrubricas.entity.Docente;
 public interface DocenteDao {
 	int create(Docente d);
 	int update(Docente d);
-	int delete(int codigo);
-	Map<String,Object> read(int id);
+	int delete(String codigo);
+	Map<String,Object> read(String id);
 	Map<String,Object> readAll();
-
+	Map<String, Object> readDinamico();
 }

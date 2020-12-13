@@ -29,9 +29,9 @@ public class DocenteController {
 		public Map<String, Object> readAll(){
 			return d.readAll();
 		}
-		@GetMapping("/docentes/{id}")
+		@GetMapping("/docentes/{codigo}")
 		@CrossOrigin(origins = "http://localhost:4200")
-		public Map<String, Object> read(@PathVariable int codigo) {
+		public Map<String, Object> read(@PathVariable String codigo) {
 			return d.read(codigo);
 		}
 		@PostMapping("/docentes/add")
@@ -39,19 +39,24 @@ public class DocenteController {
 		public int create(@RequestBody Docente dc) {
 			return d.create(dc);
 		}
-		@DeleteMapping("/docentes/delete/{id}")
+		@DeleteMapping("/docentes/delete/{codigo}")
 		@CrossOrigin(origins = "http://localhost:4200")
-		public int delete(@PathVariable int codigo) {
+		public int delete(@PathVariable String codigo) {
 			return d.delete(codigo);
 		}
 		
-		@PutMapping("/docentes/update/{id}")
+		@PutMapping("/docentes/update/{codigo}")
 		@CrossOrigin(origins = "http://localhost:4200")
-		public int update(@RequestBody Docente docente,@PathVariable int codigo) {
+		public int update(@RequestBody Docente docente,@PathVariable String codigo) {
 			Docente da = new Docente();
 			da.setCodigo(docente.getCodigo());
 			da.setIdpersona(docente.getIdpersona());
 			return d.update(da);
+		}
+		@GetMapping("/docentes/readdinamico")
+		@CrossOrigin(origins = "http://localhost:4200")
+		public Map<String, Object> readDinamico(){
+			return d.readDinamico();
 		}
 
 }

@@ -6,22 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.com.sysrubricas.dao.ExpertoEDao;
+import pe.edu.com.sysrubricas.entity.ExpertoE;
 import pe.edu.com.sysrubricas.service.ExpertoEService;
 @Service
 public class ExpertoEServiceImp implements ExpertoEService{
 	@Autowired
 	private ExpertoEDao e;
+
 	@Override
-	
-	public int create(ExpertoEService e) {
+	public int create(ExpertoE ex) {
 		
-		return e.create(e);
+		return e.create(ex);
 	}
 
 	@Override
-	public int update(ExpertoEService e) {
+	public int update(ExpertoE ex) {
 		
-		return e.update(e);
+		return e.update(ex);
 	}
 
 	@Override
@@ -32,12 +33,15 @@ public class ExpertoEServiceImp implements ExpertoEService{
 
 	@Override
 	public Map<String, Object> read(int id) {
-		return e.readAll();
+		
+		return e.read(id);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
+		
 		return e.readAll();
 	}
+	
 
 }

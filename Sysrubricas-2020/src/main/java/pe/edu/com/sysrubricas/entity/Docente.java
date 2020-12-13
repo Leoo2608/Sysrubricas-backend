@@ -2,22 +2,22 @@ package pe.edu.com.sysrubricas.entity;
 
 public class Docente {
 	
-	private int codigo;
+	private String codigo;
 	private int idpersona;
 	private char estado;
 	public Docente() {
 		super();
 	}
-	public Docente(int codigo, int idpersona, char estado) {
+	public Docente(String codigo, int idpersona, char estado) {
 		super();
 		this.codigo = codigo;
 		this.idpersona = idpersona;
 		this.estado = estado;
 	}
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public int getIdpersona() {

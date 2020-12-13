@@ -35,12 +35,12 @@ public class DocenteDaoImp implements DocenteDao {
 	
 
 	@Override
-	public Map<String, Object> read(int id) {
+	public Map<String, Object> read(String id) {
 		System.out.println(id);
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 		.withCatalogName("CRUD_DOCENTES")
 		.withProcedureName("SP_READ_D")
-		.declareParameters(new SqlOutParameter("CURSOR_DOCENTES", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("CODIGOD", Types.INTEGER));
+		.declareParameters(new SqlOutParameter("CURSOR_DOCENTES", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("CODIGOD", Types.VARCHAR));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("CODIGOD", id);
 		return simpleJdbcCall.execute(in);
 	}
@@ -58,8 +58,16 @@ public class DocenteDaoImp implements DocenteDao {
 
 
 	@Override
-	public int delete(int codigo) {
+	public int delete(String codigo) {
 		return jdbcTemplate.update("CALL CRUD_DOCENTES.SP_DELETE_LOG_D(?)", codigo);
+	}
+	@Override
+	public Map<String, Object> readDinamico(){
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withCatalogName("CRUD_DOCENTES")
+				.withProcedureName("sp_listar_dinamico")
+				.declareParameters(new SqlOutParameter("cursor_docente", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+				return simpleJdbcCall.execute();
 	}
 
 }

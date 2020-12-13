@@ -4,13 +4,23 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 import pe.edu.com.sysrubricas.dao.DocenteDao;
 import pe.edu.com.sysrubricas.dao.ExpertoEDao;
 import pe.edu.com.sysrubricas.entity.Docente;
 import pe.edu.com.sysrubricas.entity.ExpertoE;
 
-
-
+import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
+import pe.edu.com.sysrubricas.dao.PersonaDao;
+import pe.edu.com.sysrubricas.dao.PlanAcademicoDao;
+import pe.edu.com.sysrubricas.dao.PlanLineaDao;
+import pe.edu.com.sysrubricas.dao.RolDao;
+import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
+import pe.edu.com.sysrubricas.entity.LineaAcademica;
+import pe.edu.com.sysrubricas.entity.Persona;
+import pe.edu.com.sysrubricas.entity.PlanAcademico;
+import pe.edu.com.sysrubricas.entity.PlanLinea;
+import pe.edu.com.sysrubricas.entity.Rol;
 
 
 
@@ -19,42 +29,31 @@ class Sysrubricas2020ApplicationTests {
 	@Autowired
 
 
-	private DocenteDao ld;
+
+	private ExpertoEDao e;
 	
 	@Autowired
-	private ExpertoEDao e;
+	private PersonaDao ed;
 	@Test
 	void contextLoads() {
 
 		//Docente doc = new Docente();
 		//doc.setCodigo(1111111111);
 		//doc.setIdpersona(41);
-		System.out.println(ld.readAll());
+		//System.out.println(d.readDinamico());
 		//System.out.println(ld.read(1111111111));
-		//ld.delete(21);
 		/*LineaAcademica l = new LineaAcademica();
 		l.setNombre("Gestión de TI");
 		l.setId_unidad(5);
 		System.out.println(ld.create(l));*/
 
-		
-
+		ExpertoE ex = new ExpertoE();
+		System.out.println(e.delete(1));
+		 
 	}
+}
 
-		/*PlanAcademico p = new PlanAcademico();
-		p.setIdplan(23);
-		p.setNombre("2016-1 EP Ingeniería de Sistemas - Sede Lima");
-		p.setIdunidad(5);
-		p.setCiclos(10);
-		p.setCreditos(201);
-		p.setCursos(70);
-		p.setAnio_inicio("02/03/2016");
-		p.setAnio_termino("25/12/2020");
-		System.out.println(pd.update(p));*/
-		//System.out.println(ud.Campus());
 		
-	}	
-
 
 
 

@@ -25,7 +25,7 @@ public class DocenteServiceImp implements DocenteService {
 	
 
 	@Override
-	public Map<String, Object> read(int id) {
+	public Map<String, Object> read(String id) {
 		return dc.read(id);
 	}
 
@@ -35,8 +35,12 @@ public class DocenteServiceImp implements DocenteService {
 	}
 
 	@Override
-	public int delete(int codigo) {
+	public int delete(String codigo) {
 		return dc.delete(codigo);
+	}
+	@Override
+	public Map<String, Object> readDinamico(){
+		return dc.readDinamico();
 	}
 
 }
