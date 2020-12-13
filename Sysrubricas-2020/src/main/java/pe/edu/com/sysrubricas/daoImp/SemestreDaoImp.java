@@ -1,5 +1,4 @@
 package pe.edu.com.sysrubricas.daoImp;
-
 import java.sql.Types;
 import java.util.Map;
 
@@ -14,10 +13,13 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Component;
 
 import oracle.jdbc.internal.OracleTypes;
+
 import pe.edu.com.sysrubricas.dao.SemestreDao;
 import pe.edu.com.sysrubricas.entity.Semestre;
+
 @Component
 public class SemestreDaoImp implements SemestreDao {
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
@@ -29,7 +31,7 @@ public class SemestreDaoImp implements SemestreDao {
 
 	@Override
 	public int update(Semestre s) {
-		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_S(?)", s.getNombre());
+		return jdbcTemplate.update("CALL PK_SEMESTRE.SP_UPDATE_S(?,?)", s.getId_semestre(), s.getNombre());
 	}
 
 	@Override
@@ -42,9 +44,9 @@ public class SemestreDaoImp implements SemestreDao {
 		System.out.println(id);
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 		.withCatalogName("PK_SEMESTRE")
-		.withProcedureName("SP_READ_S")
-		.declareParameters(new SqlOutParameter("CURSOR_SEMESTRES", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("ID_SEMESTRE", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("ID_SEMESTRE", id);
+		.withProcedureName("sp_read_semestre")
+		.declareParameters(new SqlOutParameter("CURSOR_SEMESTRE", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("P_idsemestre", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("P_idsemestre", id);
 		return simpleJdbcCall.execute(in);
 	}
 
@@ -52,8 +54,8 @@ public class SemestreDaoImp implements SemestreDao {
 	public Map<String, Object> readAll() {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 				.withCatalogName("pk_semestre")
-				.withProcedureName("sp_listar_s")
-				.declareParameters(new SqlOutParameter("cursor_semestres", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+				.withProcedureName("sp_listar_semestre")
+				.declareParameters(new SqlOutParameter("cursor_semestre", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 				return simpleJdbcCall.execute();
 	}
 

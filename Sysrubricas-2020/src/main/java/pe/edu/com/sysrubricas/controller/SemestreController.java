@@ -12,14 +12,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import pe.edu.com.sysrubricas.entity.LineaAcademica;
 import pe.edu.com.sysrubricas.entity.Semestre;
-import pe.edu.com.sysrubricas.entity.TipoUnidadAcademica;
 import pe.edu.com.sysrubricas.service.SemestreService;
 
 @RestController
 @RequestMapping("/semestres")
+
 public class SemestreController {
 	@Autowired
 	private SemestreService sser;
@@ -30,6 +28,12 @@ public class SemestreController {
 		return sser.readAll();
 	}
 	
+	@GetMapping("/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Map<String, Object> read(@PathVariable int id) {
+		return sser.read(id);
+	}
+	
 	@PostMapping("/add")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int create(@RequestBody Semestre s) {
@@ -38,12 +42,12 @@ public class SemestreController {
 		return sser.create(semestre);
 	}
 	
-	@DeleteMapping("/semestre/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int delete(@PathVariable int id) {
 		return sser.delete(id);
 	}
-	@PutMapping("/semestre/update/{id}")
+	@PutMapping("/update/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int update(@RequestBody Semestre semestres,@PathVariable int id) {
 		Semestre semestre = new Semestre();

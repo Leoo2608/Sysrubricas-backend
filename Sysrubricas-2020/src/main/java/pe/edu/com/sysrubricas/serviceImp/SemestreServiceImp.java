@@ -10,7 +10,7 @@ import pe.edu.com.sysrubricas.dao.SemestreDao;
 import pe.edu.com.sysrubricas.entity.Semestre;
 import pe.edu.com.sysrubricas.service.SemestreService;
 @Service
-public class SemestreServiceImp implements SemestreService{
+public class SemestreServiceImp implements SemestreService {
 	@Autowired
 	private SemestreDao sdao;
 	@Override
