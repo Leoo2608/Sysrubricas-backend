@@ -10,6 +10,8 @@ import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
 import pe.edu.com.sysrubricas.dao.ParticipanteDao;
 import pe.edu.com.sysrubricas.dao.PlanAcademicoDao;
 import pe.edu.com.sysrubricas.dao.PlanLineaDao;
+import pe.edu.com.sysrubricas.dao.ProyectoDao;
+import pe.edu.com.sysrubricas.dao.SemestreDao;
 import pe.edu.com.sysrubricas.dao.UnidadAcademicaDao;
 import pe.edu.com.sysrubricas.entity.Curso;
 import pe.edu.com.sysrubricas.entity.Curso_plan;
@@ -31,12 +33,15 @@ class Sysrubricas2020ApplicationTests {
 	private CursoDao cu;
 	@Autowired
 	private Curso_planDao cp;
-	
+	@Autowired
+	private SemestreDao s;
+	@Autowired
+	private ProyectoDao pp;
 	@Test
 	void contextLoads() {
 						
 						
-		System.out.println(cp.read(85));
+		System.out.println(pp.readxUnidad(5));
 	}	
 
 }
