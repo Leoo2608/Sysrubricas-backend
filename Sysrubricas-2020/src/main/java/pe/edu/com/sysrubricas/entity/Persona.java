@@ -2,21 +2,21 @@ package pe.edu.com.sysrubricas.entity;
 
 public class Persona {
 	 private int idpersona;
-	   private String nombre;
-	   private String apellidopat;
-	   private String apellidomat;
+	   private String nombres;
+	   private String apepat;
+	   private String apemat;
 	   private String dni;
 	   private String telefono;
 	   private char estado;
 	public Persona() {
 		super();
 	}
-	public Persona(int idpersona, String nombre, String apellidopat,String apellidomat, String dni, String telefono, char estado) {
+	public Persona(int idpersona, String nombres, String apepat,String apemat, String dni, String telefono, char estado) {
 		super();
 		this.idpersona = idpersona;
-		this.nombre = nombre;
-		this.apellidopat = apellidopat;
-		this.apellidomat = apellidomat;
+		this.nombres = nombres;
+		this.apepat = apepat;
+		this.apemat = apemat;
 		this.dni = dni;
 		this.telefono = telefono;
 		this.estado = estado;
@@ -27,23 +27,24 @@ public class Persona {
 	public void setIdpersona(int idpersona) {
 		this.idpersona = idpersona;
 	}
-	public String getNombre() {
-		return nombre;
+	public String getNombres() {
+		return nombres;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
 	}
-	public String getApellidopat() {
-		return apellidopat;
+	
+	public String getApepat() {
+		return apepat;
 	}
-	public void setApellidopat(String apellidopat) {
-		this.apellidopat = apellidopat;
+	public void setApepat(String apepat) {
+		this.apepat = apepat;
 	}
-	public String getApellidomat() {
-		return apellidomat;
+	public String getApemat() {
+		return apemat;
 	}
-	public void setApellidomat(String apellidomat) {
-		this.apellidomat = apellidomat;
+	public void setApemat(String apemat) {
+		this.apemat = apemat;
 	}
 	public String getDni() {
 		return dni;

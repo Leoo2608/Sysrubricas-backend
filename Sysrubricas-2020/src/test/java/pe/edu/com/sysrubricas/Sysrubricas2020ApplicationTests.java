@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.edu.com.sysrubricas.dao.LineaAcademicaDao;
+import pe.edu.com.sysrubricas.dao.ModuloDao;
 import pe.edu.com.sysrubricas.dao.PersonaDao;
 import pe.edu.com.sysrubricas.dao.PlanAcademicoDao;
 import pe.edu.com.sysrubricas.dao.PlanLineaDao;
@@ -25,6 +26,8 @@ class Sysrubricas2020ApplicationTests {
 	private RolDao rd;
 	@Autowired
 	private PersonaDao ed;
+	@Autowired
+	private ModuloDao md;
 	@Test
 	void contextLoads() {
 
@@ -39,14 +42,14 @@ class Sysrubricas2020ApplicationTests {
 		p.setAnio_termino("25/12/2020");
 		System.out.println(pd.update(p));*/
 		//System.out.println(ud.Campus());
-		Persona p = new Persona();
+		/*Persona p = new Persona();
 		p.setIdpersona(22);
 		p.setNombre("Carlos");
 		p.setApellidopat("Medina");
 		p.setApellidomat("Ugarte");
 		p.setDni("45682462");
-		p.setTelefono("970380344");
-		System.out.println(ed.update(p));
+		p.setTelefono("970380344");*/
+		System.out.println(md.readAll());
 	}	
 
 }
